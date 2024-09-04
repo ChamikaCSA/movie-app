@@ -272,7 +272,7 @@ class MovieDetailsScreen extends StatelessWidget {
                 const SizedBox(height: 12),
                 SectionHeader(
                   title: 'Cast',
-                  buttonText: 'See More',
+                  showButton: true,
                   onPressed: () {
                     onSeeMoreTap(movie);
                   },

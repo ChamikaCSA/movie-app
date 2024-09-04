@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class SectionHeader extends StatelessWidget {
   final String title;
-  final String buttonText;
+  final bool showButton;
   final VoidCallback onPressed;
 
   const SectionHeader({
     super.key,
     required this.title,
-    required this.buttonText,
+    required this.showButton,
     required this.onPressed,
   });
 
@@ -24,6 +24,9 @@ class SectionHeader extends StatelessWidget {
             fontWeight: FontWeight.bold,
             ),
         ),
+        !showButton
+            ? const SizedBox(height: 48)
+            :
         OutlinedButton(
           onPressed: onPressed,
           style: OutlinedButton.styleFrom(
@@ -36,7 +39,7 @@ class SectionHeader extends StatelessWidget {
             foregroundColor:
                 Theme.of(context).colorScheme.primary.withOpacity(0.5),
           ),
-          child: Text(buttonText),
+          child: const Text('See more'),
         ),
       ],
     );
