@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/widgets/user_drawer.dart';
 
 import 'home.dart';
 import 'search.dart';
@@ -25,6 +27,9 @@ class _TabsScreenState extends State<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var imageUrl = FirebaseAuth.instance.currentUser!.photoURL;
+    var displayName = FirebaseAuth.instance.currentUser!.displayName;
+
     return Scaffold(
       appBar: AppBar(
         title: _isSearching
@@ -66,7 +71,7 @@ class _TabsScreenState extends State<TabsScreen> {
           },
         ),
       ),
-      drawer: const Drawer(),
+      drawer: UserDrawer(imageUrl: imageUrl, displayName: displayName),
       body: _isSearching
           ? SearchScreen(query: _searchQuery)
           : _selectedIndex == 0
