@@ -16,15 +16,11 @@ class UserDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
         child: ListView(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(0),
       children: [
         DrawerHeader(
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(12),
-              topRight: Radius.circular(12),
-            )
           ),
           child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
             CircleAvatar(
